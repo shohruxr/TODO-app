@@ -1,15 +1,15 @@
-import "./App.css";
-import Footer from "./components/Footer.tsx";
-import NewTask from "./components/NewTaskForm.tsx";
-import Task from "./components/Task.tsx";
+import './App.css';
+import Footer from './components/Footer.tsx';
+import NewTask from './components/NewTaskForm.tsx';
+import TaskList from './components/TaskList.tsx';
 
 function App() {
   return (
     <>
       <section className="todoapp">
-       <NewTask/>
+        <NewTask />
         <section className="main">
-          <Task/>
+          <TaskList />
           <Footer />
         </section>
       </section>
