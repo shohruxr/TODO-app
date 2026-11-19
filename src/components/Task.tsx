@@ -1,20 +1,28 @@
-interface Taskls {
-  description: string;
-  created: Date;
+interface TaskProps {
+  task: {
+    id: number;
+    description: string;
+    created: Date;
+    status: string;
+  };
 }
 
-const Task = (Props: Taskls) => {
+function Task({ task }: TaskProps) {
   return (
-    <li className="completed">
+    <li className={`${task.status}`}>
       <div className="view">
         <input className="toggle" type="checkbox" />
         <label>
-          <span className="description">{Props.description}</span>
+          <span className="description">{task.description}</span>
+          <span className="created">etbergbe</span>
         </label>
         <button className="icon icon-edit"></button>
         <button className="icon icon-destroy"></button>
       </div>
+      {task.status === 'editing' && (
+        <input type="text" className="edit" value={task.description} />
+      )}
     </li>
   );
-};
+}
 export default Task;

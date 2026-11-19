@@ -1,9 +1,17 @@
-interface Filter {
-  children: React.ReactNode;
-}
-
-const TaskFilter = ({ children }: Filter) => {
-  return <footer className="footer">{children}</footer>;
+const TaskFilter = () => {
+  return (
+    <ul className="filters">
+      <li>
+        <button className="selected">All</button>
+      </li>
+      <li>
+        <button>Active</button>
+      </li>
+      <li>
+        <button>Completed</button>
+      </li>
+    </ul>
+  );
 };
 
 export default TaskFilter;

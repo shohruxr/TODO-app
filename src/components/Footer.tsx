@@ -1,22 +1,12 @@
-import TaskFilter from "./TaskFilter.tsx";
+import TaskFilter from './TaskFilter.tsx';
 
 function Footer() {
   return (
-    <TaskFilter>
+    <footer className="footer">
       <span className="todo-count">1 items left</span>
-      <ul className="filters">
-        <li>
-          <button className="selected">All</button>
-        </li>
-        <li>
-          <button>Active</button>
-        </li>
-        <li>
-          <button>Completed</button>
-        </li>
-      </ul>
+      <TaskFilter />
       <button className="clear-completed">Clear completed</button>
-    </TaskFilter>
+    </footer>
   );
 }
 

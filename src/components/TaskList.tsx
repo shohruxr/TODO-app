@@ -1,13 +1,20 @@
-// interface List{
-//     children: React.ReactNode
-// }
-
 import Task from './Task';
 
-function TaskList() {
+interface TaskListProps {
+  tasks: {
+    id: number;
+    description: string;
+    created: Date;
+    status: string;
+  }[];
+}
+
+function TaskList({ tasks }: TaskListProps) {
   return (
     <ul className="todo-list">
-      <Task description="Completed" created={new Date()} />
+      {tasks.map((task) => (
+        <Task key={task.id} task={task} />
+      ))}
     </ul>
   );
 }
