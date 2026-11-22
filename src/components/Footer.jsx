@@ -1,4 +1,4 @@
-import TaskFilter from './TaskFilter.tsx';
+import TaskFilter from './TaskFilter.jsx';
 
 function Footer() {
   return (

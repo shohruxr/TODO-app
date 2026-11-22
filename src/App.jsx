@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import './App.css';
-import Footer from './components/Footer.tsx';
-import NewTask from './components/NewTaskForm.tsx';
-import TaskList from './components/TaskList.tsx';
+import Footer from './components/Footer';
+import NewTask from './components/NewTaskForm';
+import TaskList from './components/TaskList';
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -11,29 +11,36 @@ function App() {
       description: 'Completed task',
       created: new Date(),
       status: 'completed',
-      isediting: false,
     },
     {
       id: 2,
       description: 'Active task',
       created: new Date(),
       status: 'active',
-      isediting: false,
     },
     {
       id: 3,
       description: 'Editing task',
       created: new Date(),
       status: 'editing',
-      isediting: true,
     },
   ]);
 
-  const deleteTask = (id: number) => {
+  const addTask = (description) => {
+    const newTask = {
+      id: tasks.length + 1,
+      description: description,
+      created: new Date(),
+      status: 'active',
+    };
+
+    setTasks((prevtasks) => [...prevtasks, newTask]);
+  };
+  const deleteTask = (id) => {
     setTasks((prevtasks) => prevtasks.filter((task) => task.id !== id));
   };
 
-  const toggleTaskStatus = (id: number) => {
+  const toggleTaskStatus = (id) => {
     setTasks((prevTasks) =>
       prevTasks.map((task) => {
         if (task.id === id) {
@@ -46,7 +53,7 @@ function App() {
     );
   };
 
-  const updateTaskDescription = (id: number, newDescription: string) => {
+  const updateTaskDescription = (id, newDescription) => {
     setTasks((prevTasks) =>
       prevTasks.map((task) =>
         task.id === id ? { ...task, description: newDescription } : task
@@ -57,7 +64,7 @@ function App() {
   return (
     <>
       <section className="todoapp">
-        <NewTask />
+        <NewTask newTask={addTask} />
         <section className="main">
           <TaskList
             tasks={tasks}
