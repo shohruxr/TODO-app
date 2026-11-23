@@ -7,19 +7,19 @@ import TaskList from './components/TaskList';
 function App() {
   const [tasks, setTasks] = useState([
     {
-      id: 1,
+      id: Date.now(),
       description: 'Completed task',
       created: new Date(),
       status: 'completed',
     },
     {
-      id: 2,
+      id: Date.now(),
       description: 'Active task',
       created: new Date(),
       status: 'active',
     },
     {
-      id: 3,
+      id: Date.now(),
       description: 'Editing task',
       created: new Date(),
       status: 'editing',
@@ -28,7 +28,7 @@ function App() {
 
   const addTask = (description) => {
     const newTask = {
-      id: tasks.length + 1,
+      id: Date.now(),
       description: description,
       created: new Date(),
       status: 'active',
